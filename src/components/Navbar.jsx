@@ -176,7 +176,7 @@ export function Navbar({ onOpenBooking, activeSection }) {
               MERRY<span style={{ color: 'var(--gold-primary)' }}>ME</span>
             </div>
             <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)', letterSpacing: '0.22em', marginTop: '-2px' }}>
-              铭刻光影 · 影像定制
+              铭刻光影 · 线上影像精修与设计
             </div>
           </div>
         </a>
@@ -242,10 +242,10 @@ export function Navbar({ onOpenBooking, activeSection }) {
             {isPlayingMusic ? <Volume2 size={18} className="animate-pulse-glow" /> : <VolumeX size={18} />}
           </button>
 
-          {/* Book Now Button */}
+          {/* Online Custom Request CTA */}
           <button onClick={onOpenBooking} className="btn-primary btn-sm" style={{ display: 'none' }} id="desktop-book-btn">
-            <Calendar size={15} />
-            <span>档期预约</span>
+            <Sparkles size={15} />
+            <span>在线传片定制</span>
           </button>
 
           {/* Mobile Menu Toggle */}
@@ -303,8 +303,8 @@ export function Navbar({ onOpenBooking, activeSection }) {
             className="btn-primary"
             style={{ width: '100%', marginTop: '8px' }}
           >
-            <Calendar size={16} />
-            <span>查询档期与在线定制</span>
+            <Sparkles size={16} />
+            <span>在线传片与定制咨询</span>
           </button>
         </div>
       )}

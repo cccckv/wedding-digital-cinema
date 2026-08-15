@@ -1,31 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { Play, Sliders, ShieldCheck, Video, Sparkles, ChevronDown, Compass } from 'lucide-react';
+import { Play, Sliders, ShieldCheck, Video, Sparkles, ChevronDown, Image, Wand2, UploadCloud } from 'lucide-react';
 import { BRAND_INFO } from '../data/weddingData';
 
-export function Hero({ onOpenBooking, onSelectPortfolioVideo }) {
+export function Hero({ onOpenBooking }) {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const heroSlides = [
     {
       img: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85",
-      subtitle: "CINEMATIC WEDDING BESPOKE",
-      title: "每一帧誓言，皆是传世电影",
-      quote: "以好莱坞电影工业级视听标准，重构专属于两人的光影史诗",
-      tag: "三亚 · 海风与暮光之盟"
+      subtitle: "ONLINE BESPOKE DIGITAL ATELIER",
+      title: "每一张原片，皆可重塑为艺术大片",
+      quote: "专注线上婚纱照高定设计、商业级毛孔质感精修、婚礼视频剪辑包装与达芬奇电影调色",
+      tag: "100% 线上定制 · 全球传片即修"
     },
     {
       img: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=2000&q=85",
-      subtitle: "DESTINATION MEMORIES",
-      title: "行走世界，刻下永恒的诗篇",
-      quote: "从巴黎塞纳河畔到圣托里尼落日，用胶片质感丈量爱的经纬",
-      tag: "法国 · 巴黎古堡纪实"
+      subtitle: "EDITORIAL ALBUM & RETOUCH",
+      title: "告别传统影楼模板，拥抱杂志级美学",
+      quote: "以 Vogue 杂志排版与双曲线骨相光影修图，赋予婚纱照与纪念画册独一无二的呼吸感",
+      tag: "法式杂志风排版 · 骨相光影精修"
     },
     {
       img: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2000&q=85",
-      subtitle: "REAL EMOTION CAPTURE",
-      title: "不定义风格，只记录真诚眼泪",
-      quote: "摒弃刻板摆拍，在无感抓拍中捕捉心跳同频的微表情与纯粹感动",
-      tag: "上海 · 宝格丽盛典极速快剪"
+      subtitle: "CINEMATIC VIDEO EDITING",
+      title: "零散婚礼视频素材，剪成院线微电影",
+      quote: "整合手机、单反与无人机多机位素材，专业电影剪辑、誓词降噪混音与胶片色彩重构",
+      tag: "婚礼视频精剪 · 24H 极速出片"
     }
   ];
 
@@ -37,8 +37,8 @@ export function Hero({ onOpenBooking, onSelectPortfolioVideo }) {
   }, [heroSlides.length]);
 
   return (
-    <section id="hero" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden', paddingTop: '80px' }}>
-      {/* Background Slides with smooth crossfade */}
+    <section id="hero" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden', paddingTop: '100px' }}>
+      {/* Background Slides with crossfade */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         {heroSlides.map((slide, index) => (
           <div
@@ -55,11 +55,11 @@ export function Hero({ onOpenBooking, onSelectPortfolioVideo }) {
             }}
           />
         ))}
-        {/* Cinematic Vignette & Gradient Overlay */}
+        {/* Cinematic Vignette Overlay */}
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.85) 70%, rgba(10,11,14,1) 100%)',
+          background: 'linear-gradient(180deg, rgba(10,11,14,0.7) 0%, rgba(10,11,14,0.88) 70%, rgba(10,11,14,1) 100%)',
           backdropFilter: 'blur(1px)'
         }} />
         <div style={{
@@ -71,7 +71,7 @@ export function Hero({ onOpenBooking, onSelectPortfolioVideo }) {
 
       {/* Main Content */}
       <div className="container-custom" style={{ position: 'relative', zIndex: 2, width: '100%', paddingBottom: '60px' }}>
-        <div style={{ maxWidth: '820px' }}>
+        <div style={{ maxWidth: '840px' }}>
           
           {/* Badge & Construction Notice Pill */}
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px', marginBottom: '24px' }}>
@@ -112,9 +112,9 @@ export function Hero({ onOpenBooking, onSelectPortfolioVideo }) {
 
           {/* Headline */}
           <h1 className="font-serif" style={{
-            fontSize: 'clamp(2.4rem, 5vw, 4.5rem)',
+            fontSize: 'clamp(2.3rem, 4.8vw, 4.4rem)',
             fontWeight: 400,
-            lineHeight: 1.15,
+            lineHeight: 1.18,
             color: '#ffffff',
             marginBottom: '20px',
             textShadow: '0 4px 24px rgba(0,0,0,0.8)'
@@ -127,7 +127,7 @@ export function Hero({ onOpenBooking, onSelectPortfolioVideo }) {
             fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
             color: 'var(--text-secondary)',
             lineHeight: 1.7,
-            maxWidth: '650px',
+            maxWidth: '680px',
             marginBottom: '36px',
             fontWeight: 300
           }}>
@@ -138,12 +138,12 @@ export function Hero({ onOpenBooking, onSelectPortfolioVideo }) {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', alignItems: 'center' }}>
             <a href="#configurator" className="btn-primary" style={{ textDecoration: 'none' }}>
               <Sliders size={18} />
-              <span>开始智能定制与测算</span>
+              <span>在线定制与实时估价</span>
             </a>
             
-            <a href="#portfolio" className="btn-secondary" style={{ textDecoration: 'none' }}>
-              <Play size={16} fill="currentColor" />
-              <span>探索精选院线客片</span>
+            <a href="#color-lab" className="btn-secondary" style={{ textDecoration: 'none' }}>
+              <Wand2 size={16} />
+              <span>查看精修/调色前后对比</span>
             </a>
 
             <button
@@ -151,7 +151,8 @@ export function Hero({ onOpenBooking, onSelectPortfolioVideo }) {
               className="btn-secondary"
               style={{ background: 'rgba(212, 175, 55, 0.1)', borderColor: 'var(--gold-muted)', color: 'var(--gold-light)' }}
             >
-              <span>锁定2026/2027稀缺档期</span>
+              <UploadCloud size={16} />
+              <span>在线传片定制咨询</span>
             </button>
           </div>
 
@@ -177,7 +178,7 @@ export function Hero({ onOpenBooking, onSelectPortfolioVideo }) {
 
         </div>
 
-        {/* Feature Highlights Grid at bottom of Hero */}
+        {/* Feature Highlights Grid */}
         <div style={{
           marginTop: '60px',
           display: 'grid',
@@ -185,10 +186,10 @@ export function Hero({ onOpenBooking, onSelectPortfolioVideo }) {
           gap: '16px'
         }}>
           {[
-            { label: "4K 60fps HDR", desc: "多机位电影级原生机身与大光圈定焦群" },
-            { label: "Kodak 2383 胶片色调", desc: "独家好莱坞级电影色彩与温润肤色还原" },
-            { label: "24H 当日晚宴快剪", desc: "主创现场移动工作站，晚宴即刻首映" },
-            { label: "终身 4K 数字云相册", desc: "专属密码解锁，全套原画无损资产留存" }
+            { label: "商业级质感精修", desc: "双曲线骨相重塑 · 保留真实毛孔 · 拒假白塑料皮" },
+            { label: "杂志风画册排版", desc: "Vogue风艺术排版 · 专属誓词字体 · 印刷级CMYK" },
+            { label: "婚礼视频剪辑混音", desc: "多机位素材精剪 · 誓词音频降噪 · 节奏卡点包装" },
+            { label: "全流程无忧交付", desc: "最快 24H 急速出稿 · 终身无限次微调至完全满意" }
           ].map((item, idx) => (
             <div
               key={idx}
@@ -230,7 +231,7 @@ export function Hero({ onOpenBooking, onSelectPortfolioVideo }) {
           zIndex: 3
         }}
       >
-        <span className="font-display">EXPLORE</span>
+        <span className="font-display">EXPLORE SERVICES</span>
         <ChevronDown size={18} className="animate-pulse-glow" />
       </a>
     </section>

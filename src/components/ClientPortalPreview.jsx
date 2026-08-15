@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Cloud, Heart, Download, Share2, MessageSquare, Send, Eye, Lock, CheckCircle2, Sparkles } from 'lucide-react';
+import { Cloud, Heart, Download, Share2, MessageSquare, Send, Eye, Lock, CheckCircle2, Sparkles, Check } from 'lucide-react';
 import { DEMO_CLIENT_PORTAL } from '../data/weddingData';
 
 export function ClientPortalPreview() {
   const [danmuList, setDanmuList] = useState(DEMO_CLIENT_PORTAL.initialDanmu);
   const [newDanmuText, setNewDanmuText] = useState('');
   const [photoLikes, setPhotoLikes] = useState({
-    p1: 186, p2: 245, p3: 192, p4: 310, p5: 278, p6: 164
+    p1: 218, p2: 264, p3: 198, p4: 320, p5: 289, p6: 175
   });
   const [activePhoto, setActivePhoto] = useState(null);
   const [downloadSuccess, setDownloadSuccess] = useState(false);
@@ -34,7 +34,7 @@ export function ClientPortalPreview() {
     }));
   };
 
-  const simulateDownload = (photo) => {
+  const simulateDownload = () => {
     setDownloadSuccess(true);
     setTimeout(() => setDownloadSuccess(false), 2500);
   };
@@ -47,15 +47,15 @@ export function ClientPortalPreview() {
         <div style={{ textAlign: 'center', marginBottom: '50px' }}>
           <div className="section-tag">
             <Cloud size={14} />
-            <span>Digital Client Portal Preview</span>
+            <span>Online Proofing & Delivery Portal</span>
           </div>
-          <h2 className="section-title">新人专属数字云相册与交付体验</h2>
+          <h2 className="section-title">专属线上审片、微调与云交付中心</h2>
           <p className="section-desc">
-            婚礼结束不是终点。每对新人均享有永久独立云相册空间，支持4K原画极速下载、亲友实时弹幕祝福与一键九宫格排版。
+            传片、沟通、审稿、微调全流程线上无缝协同。支持在线批注修改意见、4K原图极速下载与终身云端母带保全。
           </p>
         </div>
 
-        {/* Mock Cloud Album Screen Container */}
+        {/* Mock Cloud Screen Container */}
         <div className="glass-panel" style={{
           borderRadius: 'var(--radius-lg)',
           border: '1px solid var(--border-gold)',
@@ -63,7 +63,7 @@ export function ClientPortalPreview() {
           boxShadow: '0 25px 60px rgba(0, 0, 0, 0.7)'
         }}>
           
-          {/* Top Browser/Portal Header Bar */}
+          {/* Top Browser Header Bar */}
           <div style={{
             background: 'rgba(10, 11, 14, 0.95)',
             borderBottom: '1px solid var(--border-subtle)',
@@ -79,55 +79,55 @@ export function ClientPortalPreview() {
               <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ffbd2e' }} />
               <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#27c93f' }} />
               <span style={{ fontSize: '0.8rem', color: 'var(--gold-light)', marginLeft: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <Lock size={12} /> https://cloud.merryme-cinema.com/v/james-andrea-2025
+                <Lock size={12} /> https://cloud.merryme-cinema.com/order/james-andrea-retouch
               </span>
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-              <span>浏览量：{DEMO_CLIENT_PORTAL.viewCount} 次</span>
-              <span>全案照片：{DEMO_CLIENT_PORTAL.totalPhotos} 张 (4K HDR)</span>
+              <span>项目状态：<strong style={{ color: '#4ade80' }}>已完成交付</strong></span>
+              <span>定稿资产：{DEMO_CLIENT_PORTAL.totalPhotos} 张高定精修 + 4K成片</span>
             </div>
           </div>
 
-          {/* Album Hero Header */}
+          {/* Hero Banner inside Portal */}
           <div style={{
             position: 'relative',
-            padding: '60px 24px',
+            padding: '50px 24px',
             backgroundImage: 'linear-gradient(rgba(10,11,14,0.7), rgba(10,11,14,0.9)), url(https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             textAlign: 'center'
           }}>
             <div className="font-display" style={{ fontSize: '0.85rem', color: 'var(--gold-primary)', letterSpacing: '0.2em', marginBottom: '8px' }}>
-              EXCLUSIVE WEDDING MEMORIES
+              ONLINE RETOUCH & DESIGN MASTER
             </div>
-            <h1 className="font-serif" style={{ fontSize: '2.5rem', color: '#fff', marginBottom: '10px' }}>
-              {DEMO_CLIENT_PORTAL.coupleName}
+            <h1 className="font-serif" style={{ fontSize: '2.4rem', color: '#fff', marginBottom: '10px' }}>
+              {DEMO_CLIENT_PORTAL.coupleName} · 影像定制案
             </h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '20px' }}>
-              {DEMO_CLIENT_PORTAL.weddingDate} · {DEMO_CLIENT_PORTAL.location}
+              {DEMO_CLIENT_PORTAL.projectType} · {DEMO_CLIENT_PORTAL.deliveryStatus}
             </p>
 
-            {/* Quick action bar */}
-            <div style={{ display: 'inline-flex', gap: '12px', background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(10px)', padding: '8px 18px', borderRadius: '30px', border: '1px solid var(--border-gold)' }}>
+            {/* Quick Actions */}
+            <div style={{ display: 'inline-flex', flexWrap: 'wrap', gap: '12px', background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(10px)', padding: '8px 18px', borderRadius: '30px', border: '1px solid var(--border-gold)' }}>
               <button
-                onClick={() => simulateDownload(null)}
+                onClick={simulateDownload}
                 style={{ background: 'transparent', border: 'none', color: 'var(--gold-light)', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer' }}
               >
-                <Download size={14} /> 一键打包全部 4K 原图 (4.2GB)
+                <Download size={14} /> 一键打包全部 4K 精修原图与印刷PDF (2.8GB)
               </button>
               <span style={{ color: 'var(--gold-muted)' }}>|</span>
               <button
-                onClick={() => alert("模拟生成微信专属九宫格分享卡片，已为您排版完成！")}
+                onClick={() => alert("模拟生成九宫格朋友圈分享高清图片包，排版已准备就绪！")}
                 style={{ background: 'transparent', border: 'none', color: 'var(--gold-light)', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer' }}
               >
-                <Share2 size={14} /> 生成朋友圈九宫格
+                <Share2 size={14} /> 生成朋友圈九宫格切图
               </button>
             </div>
 
             {downloadSuccess && (
               <div style={{ marginTop: '12px', color: '#4ade80', fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
-                <CheckCircle2 size={16} /> 模拟下载触发：正在从高防CDN拉取无损母带影像...
+                <CheckCircle2 size={16} /> 模拟下载：正在从高速OSS云节点拉取无损精修大图与分层PSD母带...
               </div>
             )}
           </div>
@@ -135,16 +135,16 @@ export function ClientPortalPreview() {
           {/* Interactive Danmu & Photo Area */}
           <div style={{ padding: '32px 24px', background: 'var(--bg-tertiary)' }}>
             
-            {/* Live Danmu / Guest Wishes Bar */}
+            {/* Live Danmu / Feedback Wall */}
             <div style={{ marginBottom: '32px' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem', color: 'var(--gold-light)', fontWeight: 600 }}>
-                  <MessageSquare size={16} /> 宾客弹幕祝福互动墙 (实时动态)
+                  <MessageSquare size={16} /> 新人与修图师即时协同反馈墙
                 </div>
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>共收到 48 条祝福</span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>已完成全部修改轮次</span>
               </div>
 
-              {/* Danmu Stream Chips */}
+              {/* Danmu Stream */}
               <div style={{
                 display: 'flex',
                 gap: '12px',
@@ -173,11 +173,11 @@ export function ClientPortalPreview() {
                 ))}
               </div>
 
-              {/* Send Danmu input form */}
+              {/* Send feedback input */}
               <form onSubmit={handleSendDanmu} style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
                 <input
                   type="text"
-                  placeholder="发送一条弹幕祝福（如：祝白头偕老！成片太震撼了！）..."
+                  placeholder="发送一条微调意见（如：第3张封面标题请换成手写英文法文排版）..."
                   value={newDanmuText}
                   onChange={(e) => setNewDanmuText(e.target.value)}
                   style={{
@@ -193,12 +193,12 @@ export function ClientPortalPreview() {
                 />
                 <button type="submit" className="btn-primary btn-sm">
                   <Send size={14} />
-                  <span>发送祝福</span>
+                  <span>提交批注</span>
                 </button>
               </form>
             </div>
 
-            {/* Photo Gallery Grid */}
+            {/* Photo Grid with Status Badges */}
             <div style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
@@ -225,6 +225,22 @@ export function ClientPortalPreview() {
                     onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
                     onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
                   />
+
+                  {/* Status badge */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '10px',
+                    left: '10px',
+                    background: 'rgba(0, 0, 0, 0.75)',
+                    backdropFilter: 'blur(4px)',
+                    border: '1px solid var(--border-gold)',
+                    borderRadius: '4px',
+                    padding: '2px 8px',
+                    fontSize: '0.7rem',
+                    color: 'var(--gold-light)'
+                  }}>
+                    ✓ {photo.status}
+                  </div>
 
                   <div style={{
                     position: 'absolute',

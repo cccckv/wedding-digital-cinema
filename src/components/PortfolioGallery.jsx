@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Film, MapPin, Calendar, Clock, X, Sparkles, ExternalLink } from 'lucide-react';
+import { Play, Film, MapPin, Calendar, Clock, X, Sparkles, ExternalLink, Image, Wand2 } from 'lucide-react';
 import { PORTFOLIO_ITEMS } from '../data/weddingData';
 
 export function PortfolioGallery({ onOpenBooking }) {
@@ -7,11 +7,11 @@ export function PortfolioGallery({ onOpenBooking }) {
   const [activeModalItem, setActiveModalItem] = useState(null);
 
   const filterTabs = [
-    { key: 'all', label: '全部作品' },
-    { key: 'cinematic', label: '婚礼微电影' },
-    { key: 'sameday', label: '当日极速快剪' },
-    { key: 'destination', label: '海外/海岛旅拍' },
-    { key: 'aerial', label: '4K全景航拍' }
+    { key: 'all', label: '全部定制作品' },
+    { key: 'photo-retouch', label: '高定人像精修' },
+    { key: 'photo-design', label: '画册/海报排版设计' },
+    { key: 'video-edit', label: '婚礼视频剪辑包装' },
+    { key: 'video-color', label: '达芬奇视频调色' }
   ];
 
   const filteredItems = selectedFilter === 'all'
@@ -25,12 +25,12 @@ export function PortfolioGallery({ onOpenBooking }) {
         {/* Section Header */}
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <div className="section-tag">
-            <Film size={14} />
-            <span>Cinematic Portfolio</span>
+            <Wand2 size={14} />
+            <span>Online Bespoke Portfolio</span>
           </div>
-          <h2 className="section-title">院线级婚庆光影客片志</h2>
+          <h2 className="section-title">线上客片精修与视频定制大赏</h2>
           <p className="section-desc">
-            真实记录，不做作的感动。每一场婚礼都是一部独特的电影长片。
+            来自全球新人的真实原片托付。从骨相光影修图到电影级剪辑调色，每一组作品皆见证光影重塑的力量。
           </p>
         </div>
 
@@ -105,7 +105,7 @@ export function PortfolioGallery({ onOpenBooking }) {
                   onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
                 />
                 
-                {/* Play Button Overlay */}
+                {/* Play / View Overlay */}
                 <div style={{
                   position: 'absolute',
                   inset: 0,
@@ -144,10 +144,10 @@ export function PortfolioGallery({ onOpenBooking }) {
                   color: 'var(--gold-light)',
                   border: '1px solid rgba(212, 175, 55, 0.3)'
                 }}>
-                  {item.aspectRatio} · {item.categoryLabel}
+                  {item.categoryLabel}
                 </div>
 
-                {/* Duration Badge */}
+                {/* Duration/Spec Badge */}
                 <div style={{
                   position: 'absolute',
                   bottom: '12px',
@@ -173,8 +173,8 @@ export function PortfolioGallery({ onOpenBooking }) {
                     <span className="font-display" style={{ fontSize: '0.85rem', color: 'var(--gold-primary)', fontWeight: 600 }}>
                       {item.couple}
                     </span>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <MapPin size={12} /> {item.location}
+                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                      {item.location}
                     </span>
                   </div>
 
@@ -197,7 +197,7 @@ export function PortfolioGallery({ onOpenBooking }) {
                   justifyContent: 'space-between'
                 }}>
                   <span>✦ {item.tag}</span>
-                  <span style={{ color: 'var(--text-muted)' }}>点击放映</span>
+                  <span style={{ color: 'var(--text-muted)' }}>点击查阅详情</span>
                 </div>
               </div>
 
@@ -207,7 +207,7 @@ export function PortfolioGallery({ onOpenBooking }) {
 
       </div>
 
-      {/* Cinema Fullscreen Modal */}
+      {/* Fullscreen Video / Photo Detail Modal */}
       {activeModalItem && (
         <div style={{
           position: 'fixed',
@@ -254,7 +254,7 @@ export function PortfolioGallery({ onOpenBooking }) {
               <X size={20} />
             </button>
 
-            {/* Video Player Box */}
+            {/* Video / Photo Preview */}
             <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', background: '#000' }}>
               <video
                 src={activeModalItem.videoPreview}
@@ -265,11 +265,11 @@ export function PortfolioGallery({ onOpenBooking }) {
               />
             </div>
 
-            {/* Video Details & Highlights */}
+            {/* Details & Highlights */}
             <div style={{ padding: '24px 28px', display: 'flex', flexWrap: 'wrap', gap: '24px', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
                 <div style={{ fontSize: '0.8rem', color: 'var(--gold-primary)', marginBottom: '4px' }}>
-                  {activeModalItem.location} · {activeModalItem.date} · {activeModalItem.couple}
+                  {activeModalItem.categoryLabel} · {activeModalItem.couple}
                 </div>
                 <h3 className="font-serif" style={{ fontSize: '1.6rem', color: '#fff', marginBottom: '8px' }}>
                   {activeModalItem.title}
@@ -292,7 +292,7 @@ export function PortfolioGallery({ onOpenBooking }) {
                   className="btn-primary"
                 >
                   <Sparkles size={16} />
-                  <span>预约此风格主创团队</span>
+                  <span>按此风格在线传片定制</span>
                 </button>
               </div>
             </div>

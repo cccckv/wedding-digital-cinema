@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
-import { Sliders, Check, Plus, ShieldCheck, Sparkles, Download, ArrowRight, Layers, FileText, CheckCircle } from 'lucide-react';
+import { Sliders, Check, Sparkles, FileText, CheckCircle, Image, Wand2, Video, Clock } from 'lucide-react';
 import { CONFIGURATOR_DATA } from '../data/weddingData';
 
 export function CustomConfigurator({ onBookConfiguredPlan }) {
-  // State for user selections
+  // State for selections
   const [selectedCategory, setSelectedCategory] = useState(CONFIGURATOR_DATA.categories[0]);
-  const [selectedCamera, setSelectedCamera] = useState(CONFIGURATOR_DATA.cameraSetups[1]); // Default to double camera
-  const [selectedDrone, setSelectedDrone] = useState(CONFIGURATOR_DATA.droneOptions[1]); // Default to standard drone
-  const [selectedPostOptions, setSelectedPostOptions] = useState(['standard-edit', 'sameday-edit']);
-  const [selectedDeliverables, setSelectedDeliverables] = useState(['cloud-vip', 'luxury-usb']);
+  const [selectedRetouchLevel, setSelectedRetouchLevel] = useState(CONFIGURATOR_DATA.retouchLevels[1]); // Default to master retouch
+  const [selectedPhotoQty, setSelectedPhotoQty] = useState(CONFIGURATOR_DATA.photoQuantityOptions[1]); // Default to +10 photos
+  const [selectedPostOptions, setSelectedPostOptions] = useState(['davinci-color', 'custom-typography']);
+  const [selectedDeliverables, setSelectedDeliverables] = useState(['cloud-vip', 'unlimited-revision', 'fast-delivery-48h']);
   const [copiedSuccess, setCopiedSuccess] = useState(false);
 
   // Toggle multiple select
   const togglePostOption = (optionId) => {
-    if (optionId === 'standard-edit') return; // required
     setSelectedPostOptions((prev) =>
       prev.includes(optionId) ? prev.filter((id) => id !== optionId) : [...prev, optionId]
     );
   };
 
   const toggleDeliverable = (delivId) => {
-    if (delivId === 'cloud-vip') return; // free default
+    if (delivId === 'cloud-vip' || delivId === 'unlimited-revision') return; // free default
     setSelectedDeliverables((prev) =>
       prev.includes(delivId) ? prev.filter((id) => id !== delivId) : [...prev, delivId]
     );
@@ -28,8 +27,8 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
 
   // Price calculations
   const categoryPrice = selectedCategory.price;
-  const cameraPrice = selectedCamera.price;
-  const dronePrice = selectedDrone.price;
+  const retouchLevelPrice = selectedRetouchLevel.price;
+  const photoQtyPrice = selectedPhotoQty.price;
 
   const postPrice = selectedPostOptions.reduce((acc, optId) => {
     const item = CONFIGURATOR_DATA.postProduction.find((p) => p.id === optId);
@@ -41,22 +40,22 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
     return acc + (item ? item.price : 0);
   }, 0);
 
-  const subtotal = categoryPrice + cameraPrice + dronePrice + postPrice + delivPrice;
-  // Bundle promotion: if total > 12000, discount 1000
-  const bundleDiscount = subtotal >= 12000 ? 1000 : (subtotal >= 8000 ? 500 : 0);
+  const subtotal = categoryPrice + retouchLevelPrice + photoQtyPrice + postPrice + delivPrice;
+  // Bundle promotion: if total > 1500, discount 150; if > 800, discount 80
+  const bundleDiscount = subtotal >= 1500 ? 150 : (subtotal >= 800 ? 80 : 0);
   const finalPrice = subtotal - bundleDiscount;
 
   // Handle plan export / copy summary
   const handleCopySummary = () => {
-    const summaryText = `【MerryMe 婚庆数码影像专属定制单】
+    const summaryText = `【MerryMe 线上婚庆影像定制单】
 -----------------------------------
-1. 拍摄类型：${selectedCategory.name} (¥${selectedCategory.price})
-2. 机位配置：${selectedCamera.name} (¥${selectedCamera.price})
-3. 航拍配置：${selectedDrone.name} (¥${selectedDrone.price})
-4. 后期数码：${selectedPostOptions.map(id => CONFIGURATOR_DATA.postProduction.find(p => p.id === id)?.name).join(' + ')}
-5. 交付资产：${selectedDeliverables.map(id => CONFIGURATOR_DATA.deliverables.find(d => d.id === id)?.name).join(' + ')}
+1. 业务类别：${selectedCategory.name} (¥${selectedCategory.price})
+2. 精修深度：${selectedRetouchLevel.name} (+¥${selectedRetouchLevel.price})
+3. 张数规格：${selectedPhotoQty.name} (+¥${selectedPhotoQty.price})
+4. 增值服务：${selectedPostOptions.map(id => CONFIGURATOR_DATA.postProduction.find(p => p.id === id)?.name).join(' + ')}
+5. 交付保障：${selectedDeliverables.map(id => CONFIGURATOR_DATA.deliverables.find(d => d.id === id)?.name).join(' + ')}
 -----------------------------------
-方案总预算：¥${finalPrice} (已享定制立减 ¥${bundleDiscount})`;
+方案总预算：¥${finalPrice} (已享在线立减优惠 ¥${bundleDiscount})`;
 
     navigator.clipboard.writeText(summaryText).then(() => {
       setCopiedSuccess(true);
@@ -72,11 +71,11 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
         <div style={{ textAlign: 'center', marginBottom: '50px' }}>
           <div className="section-tag">
             <Sliders size={14} />
-            <span>Interactive Customizer</span>
+            <span>Online Customizer & Pricing</span>
           </div>
-          <h2 className="section-title">智能影像定制与实时预算配置器</h2>
+          <h2 className="section-title">线上影像定制与实时预算配置器</h2>
           <p className="section-desc">
-            按需自选机位、无人机、极速快剪、数字云相册与实体周边。透明计价，即时生成您的专属影像定制提案。
+            按需自选婚纱照精修张数、画册排版P数、视频剪辑时长与达芬奇调色。透明实时计价，一键生成您的专属定制单。
           </p>
         </div>
 
@@ -106,7 +105,7 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}>1</div>
-                <h3 className="font-serif" style={{ fontSize: '1.25rem', color: '#fff' }}>选择拍摄类型与时长</h3>
+                <h3 className="font-serif" style={{ fontSize: '1.25rem', color: '#fff' }}>选择线上定制类别</h3>
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px' }}>
@@ -140,7 +139,7 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
               </div>
             </div>
 
-            {/* Step 2: Camera Setup & Drone */}
+            {/* Step 2: Retouch Level & Photo Quantity */}
             <div className="glass-panel" style={{ padding: '24px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
                 <div style={{
@@ -155,19 +154,19 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}>2</div>
-                <h3 className="font-serif" style={{ fontSize: '1.25rem', color: '#fff' }}>机位与航拍规格配置</h3>
+                <h3 className="font-serif" style={{ fontSize: '1.25rem', color: '#fff' }}>精修深度与规格数量</h3>
               </div>
 
-              {/* Ground Camera */}
+              {/* Retouch Level */}
               <div style={{ marginBottom: '16px' }}>
-                <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '8px' }}>地面主创机位：</div>
+                <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '8px' }}>修图工艺标准：</div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '10px' }}>
-                  {CONFIGURATOR_DATA.cameraSetups.map((cam) => {
-                    const isSelected = selectedCamera.id === cam.id;
+                  {CONFIGURATOR_DATA.retouchLevels.map((lvl) => {
+                    const isSelected = selectedRetouchLevel.id === lvl.id;
                     return (
                       <div
-                        key={cam.id}
-                        onClick={() => setSelectedCamera(cam)}
+                        key={lvl.id}
+                        onClick={() => setSelectedRetouchLevel(lvl)}
                         style={{
                           padding: '14px',
                           borderRadius: 'var(--radius-sm)',
@@ -178,29 +177,29 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
                       >
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
                           <span style={{ fontWeight: 600, color: isSelected ? 'var(--gold-light)' : '#fff', fontSize: '0.88rem' }}>
-                            {cam.name}
+                            {lvl.name}
                           </span>
                           <span style={{ color: 'var(--gold-primary)', fontSize: '0.85rem' }}>
-                            {cam.price === 0 ? "包含" : `+¥${cam.price}`}
+                            {lvl.price === 0 ? "基础" : `+¥${lvl.price}`}
                           </span>
                         </div>
-                        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{cam.desc}</div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{lvl.desc}</div>
                       </div>
                     );
                   })}
                 </div>
               </div>
 
-              {/* Drone Setup */}
+              {/* Photo Quantity Addition */}
               <div>
-                <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '8px' }}>航拍/飞行视角：</div>
+                <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '8px' }}>张数规格选择：</div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '10px' }}>
-                  {CONFIGURATOR_DATA.droneOptions.map((dr) => {
-                    const isSelected = selectedDrone.id === dr.id;
+                  {CONFIGURATOR_DATA.photoQuantityOptions.map((qty) => {
+                    const isSelected = selectedPhotoQty.id === qty.id;
                     return (
                       <div
-                        key={dr.id}
-                        onClick={() => setSelectedDrone(dr)}
+                        key={qty.id}
+                        onClick={() => setSelectedPhotoQty(qty)}
                         style={{
                           padding: '12px 14px',
                           borderRadius: 'var(--radius-sm)',
@@ -214,12 +213,12 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
                       >
                         <div>
                           <div style={{ fontWeight: 500, color: isSelected ? 'var(--gold-light)' : '#fff', fontSize: '0.85rem' }}>
-                            {dr.name}
+                            {qty.name}
                           </div>
-                          {dr.desc && <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>{dr.desc}</div>}
+                          {qty.desc && <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>{qty.desc}</div>}
                         </div>
                         <span style={{ color: 'var(--gold-primary)', fontSize: '0.85rem', fontWeight: 600 }}>
-                          {dr.price === 0 ? "无" : `+¥${dr.price}`}
+                          {qty.price === 0 ? "套餐内" : `+¥${qty.price}`}
                         </span>
                       </div>
                     );
@@ -228,7 +227,7 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
               </div>
             </div>
 
-            {/* Step 3: Post-Production Add-ons */}
+            {/* Step 3: Post-Production & Video Packaging Add-ons */}
             <div className="glass-panel" style={{ padding: '24px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
                 <div style={{
@@ -243,7 +242,7 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}>3</div>
-                <h3 className="font-serif" style={{ fontSize: '1.25rem', color: '#fff' }}>后期制作与数码增值</h3>
+                <h3 className="font-serif" style={{ fontSize: '1.25rem', color: '#fff' }}>调色、音频与排版增值</h3>
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -261,7 +260,7 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        cursor: post.required ? 'default' : 'pointer'
+                        cursor: 'pointer'
                       }}
                     >
                       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -280,13 +279,13 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
                         </div>
                         <div>
                           <div style={{ fontSize: '0.88rem', color: isChecked ? 'var(--gold-light)' : '#fff', fontWeight: 500 }}>
-                            {post.name} {post.required && <span style={{ fontSize: '0.7rem', color: 'var(--gold-primary)' }}>(标配)</span>}
+                            {post.name}
                           </div>
                           {post.desc && <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{post.desc}</div>}
                         </div>
                       </div>
                       <span style={{ color: 'var(--gold-primary)', fontSize: '0.85rem', fontWeight: 600 }}>
-                        {post.price === 0 ? "已包含" : `+¥${post.price}`}
+                        +¥{post.price}
                       </span>
                     </div>
                   );
@@ -294,7 +293,7 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
               </div>
             </div>
 
-            {/* Step 4: Deliverables & Digital Assets */}
+            {/* Step 4: Delivery Speed & Service Guarantees */}
             <div className="glass-panel" style={{ padding: '24px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
                 <div style={{
@@ -309,7 +308,7 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}>4</div>
-                <h3 className="font-serif" style={{ fontSize: '1.25rem', color: '#fff' }}>交付载体与数码实体资产</h3>
+                <h3 className="font-serif" style={{ fontSize: '1.25rem', color: '#fff' }}>交付时效与保障权益</h3>
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -352,7 +351,7 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
                         </div>
                       </div>
                       <span style={{ color: 'var(--gold-primary)', fontSize: '0.85rem', fontWeight: 600 }}>
-                        {deliv.price === 0 ? "免费赠送" : `+¥${deliv.price}`}
+                        {deliv.price === 0 ? "免费标配" : `+¥${deliv.price}`}
                       </span>
                     </div>
                   );
@@ -362,13 +361,13 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
 
           </div>
 
-          {/* Right Column: Sticky Summary & Instant Booking Card */}
+          {/* Right Column: Sticky Summary */}
           <div style={{ position: 'sticky', top: '100px' }}>
             <div className="glass-panel-gold" style={{ padding: '32px' }}>
               
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
                 <span className="font-display" style={{ fontSize: '0.85rem', color: 'var(--gold-primary)', letterSpacing: '0.1em' }}>
-                  CUSTOM SPECIFICATION
+                  ONLINE ORDER SPEC
                 </span>
                 <span style={{ fontSize: '0.75rem', background: 'rgba(212, 175, 55, 0.2)', color: 'var(--gold-light)', padding: '2px 8px', borderRadius: '4px' }}>
                   实时计价
@@ -376,34 +375,34 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
               </div>
 
               <h3 className="font-serif" style={{ fontSize: '1.8rem', color: '#fff', marginBottom: '16px' }}>
-                定制影像方案清单
+                定制方案预算清单
               </h3>
 
-              {/* Summary Items breakdown */}
+              {/* Breakdown */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '24px', fontSize: '0.85rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed rgba(255,255,255,0.08)', paddingBottom: '8px' }}>
-                  <span style={{ color: 'var(--text-secondary)' }}>拍摄类别：{selectedCategory.name}</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>定制类别：{selectedCategory.name}</span>
                   <span style={{ color: '#fff' }}>¥{categoryPrice}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed rgba(255,255,255,0.08)', paddingBottom: '8px' }}>
-                  <span style={{ color: 'var(--text-secondary)' }}>摄制机位：{selectedCamera.name}</span>
-                  <span style={{ color: '#fff' }}>¥{cameraPrice}</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>精修标准：{selectedRetouchLevel.name}</span>
+                  <span style={{ color: '#fff' }}>¥{retouchLevelPrice}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed rgba(255,255,255,0.08)', paddingBottom: '8px' }}>
-                  <span style={{ color: 'var(--text-secondary)' }}>航拍视界：{selectedDrone.name}</span>
-                  <span style={{ color: '#fff' }}>¥{dronePrice}</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>张数/规格：{selectedPhotoQty.name}</span>
+                  <span style={{ color: '#fff' }}>¥{photoQtyPrice}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed rgba(255,255,255,0.08)', paddingBottom: '8px' }}>
-                  <span style={{ color: 'var(--text-secondary)' }}>后期增值 ({selectedPostOptions.length}项)</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>增值制作 ({selectedPostOptions.length}项)</span>
                   <span style={{ color: '#fff' }}>¥{postPrice}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed rgba(255,255,255,0.08)', paddingBottom: '8px' }}>
-                  <span style={{ color: 'var(--text-secondary)' }}>实体周边/云相册 ({selectedDeliverables.length}项)</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>交付时效 ({selectedDeliverables.length}项)</span>
                   <span style={{ color: '#fff' }}>¥{delivPrice}</span>
                 </div>
               </div>
 
-              {/* Discount Alert if active */}
+              {/* Discount Alert */}
               {bundleDiscount > 0 && (
                 <div style={{
                   background: 'rgba(212, 175, 55, 0.15)',
@@ -418,7 +417,7 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
                   gap: '8px'
                 }}>
                   <Sparkles size={16} />
-                  <span>已自动触发专属全案套餐礼遇：立减 ¥{bundleDiscount}</span>
+                  <span>已自动触发在线定制组合优惠：立减 ¥{bundleDiscount}</span>
                 </div>
               )}
 
@@ -442,16 +441,16 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
                 <button
                   onClick={() => onBookConfiguredPlan({
                     category: selectedCategory.name,
-                    camera: selectedCamera.name,
-                    drone: selectedDrone.name,
+                    camera: selectedRetouchLevel.name,
+                    drone: selectedPhotoQty.name,
                     finalPrice: finalPrice,
-                    details: `${selectedPostOptions.length}项后期 + ${selectedDeliverables.length}项资产交付`
+                    details: `${selectedPostOptions.length}项增值 + ${selectedDeliverables.length}项交付权益`
                   })}
                   className="btn-primary"
                   style={{ width: '100%', padding: '14px 0', fontSize: '1rem' }}
                 >
                   <Sparkles size={18} />
-                  <span>按此方案直接预约档期</span>
+                  <span>按此方案直接传片预约</span>
                 </button>
 
                 <button
@@ -465,7 +464,7 @@ export function CustomConfigurator({ onBookConfiguredPlan }) {
               </div>
 
               <div style={{ marginTop: '20px', fontSize: '0.75rem', color: 'var(--text-muted)', textAlign: 'center', lineHeight: 1.5 }}>
-                🛡️ MerryMe 承诺：无任何隐形消费 · 合同明细保全 · 满意后交付余款
+                🛡️ MerryMe 承诺：一对一专属修图师 · 免费微调至完全满意 · 原稿安全保密
               </div>
 
             </div>

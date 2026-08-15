@@ -1,350 +1,329 @@
-// 婚庆数码影像定制工坊 - 核心演示数据集
+// MerryMe 线上婚庆数码影像定制工坊 - 核心数据集 (专注线上图片设计、精修、视频设计与剪辑调色)
 
 export const BRAND_INFO = {
   name: "MerryMe",
   chineseName: "铭刻光影",
-  tagline: "让爱在光影中永恒 · 电影级婚庆数码影像私人定制",
+  tagline: "专注线上婚纱图片设计 · 高级数码精修 · 婚礼视频剪辑包装 · 电影级调色",
   established: "2018",
-  cities: ["北京", "上海", "深圳", "成都", "三亚", "巴黎", "圣托里尼", "京都"],
+  serviceType: "100% 线上定制交付 · 全国/全球新人传片即修",
+  supportSpeed: "最快 24H 极速出片 · 终身无限次微调至满意",
   phone: "400-820-5200",
-  wechat: "MerryMe_Studio",
-  email: "bespoke@merryme-cinema.com"
+  wechat: "MerryMe_Digital",
+  email: "online@merryme-cinema.com"
 };
 
-// 精选影像作品集
+// 线上精选作品集 (展示图片精修前后、画册排版设计、视频剪辑调色)
 export const PORTFOLIO_ITEMS = [
   {
-    id: "film-1",
-    title: "《山海与共 · 暮光之盟》",
-    category: "cinematic",
-    categoryLabel: "婚礼微电影",
-    couple: "Lucas & Vivian",
-    location: "三亚 · 太阳湾柏悦",
-    date: "2025.10.18",
-    duration: "04:36",
+    id: "work-1",
+    title: "《山海暮色 · 骨相光影质感精修》",
+    category: "photo-retouch",
+    categoryLabel: "高定人像精修",
+    couple: "Lucas & Vivian (三亚旅拍素材)",
+    location: "线上定制交付",
+    date: "2025.10",
+    duration: "4K 超清精修",
     cover: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80",
     videoPreview: "https://assets.mixkit.co/videos/preview/mixkit-wedding-couple-walking-outdoors-40810-large.mp4",
-    aspectRatio: "2.39:1",
-    tag: "双机位 + 4K航拍 + 电影调色",
-    description: "海风微醺的黄昏，用2.39:1宽银幕画幅记录两人誓词时刻的泪光与悸动，Kodak 2383电影胶片温润影调。",
-    highlights: ["阿莱色彩科学还原肤色", "4K 60fps 升格慢动作", "专属现场拾音混音"]
+    aspectRatio: "3:2",
+    tag: "骨相光影重塑 + 毛孔呼吸感 + 胶片色调",
+    description: "针对原片光线平淡、面部阴影杂乱进行重绘。保留原生皮肤纹理与真实发丝，塑造高级油画感。",
+    highlights: ["中性灰/双曲线精修", "背景杂物与游人无痕消除", "专属暖金电影调色"]
   },
   {
-    id: "film-2",
-    title: "《塞纳河畔的誓约手记》",
-    category: "destination",
-    categoryLabel: "海外旅拍MV",
-    couple: "Arthur & Clara",
-    location: "法国 · 巴黎 / 卢瓦尔河谷古堡",
-    date: "2025.09.22",
-    duration: "03:52",
+    id: "work-2",
+    title: "《塞纳河畔 · 法式杂志风画册与排版设计》",
+    category: "photo-design",
+    categoryLabel: "画册排版设计",
+    couple: "Arthur & Clara (巴黎素材)",
+    location: "线上定制交付",
+    date: "2025.09",
+    duration: "40P 精装设计",
     cover: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1600&q=80",
     videoPreview: "https://assets.mixkit.co/videos/preview/mixkit-romantic-couple-on-a-bridge-in-paris-42999-large.mp4",
     aspectRatio: "16:9",
-    tag: "海外旅拍定制 + 胶片情绪",
-    description: "行走在晨雾微光的巴黎街头与古典庄园，法式松弛感与电影长镜头交织，每一帧都如同新浪潮电影。",
-    highlights: ["16mm 真实胶片质感模拟", "定制手写体法文字幕", "双人独白定制对白录制"]
+    tag: "法式手写体排版 + 跨页画册构图",
+    description: "打破传统影楼刻板模板，以 Vogue/Harper's Bazaar 杂志美学为灵感，结合新人誓词定制留白排版。",
+    highlights: ["纯手工原创定制排版", "中英法多语种艺术字体设计", "高保真印刷CMYK分色"]
   },
   {
-    id: "film-3",
-    title: "《当日盛典 · 极速光影快剪》",
-    category: "sameday",
-    categoryLabel: "24H极速快剪",
-    couple: "Daniel & Grace",
-    location: "上海 · 宝格丽酒店",
-    date: "2025.11.08",
-    duration: "03:15",
+    id: "work-3",
+    title: "《4机位素材重构 · 婚礼电影终剪与混音》",
+    category: "video-edit",
+    categoryLabel: "婚礼视频剪辑",
+    couple: "Daniel & Grace (上海婚礼素材)",
+    location: "线上定制交付",
+    date: "2025.11",
+    duration: "04:20 电影微电影",
     cover: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=80",
     videoPreview: "https://assets.mixkit.co/videos/preview/mixkit-bride-and-groom-posing-in-a-field-42997-large.mp4",
-    aspectRatio: "16:9",
-    tag: "晚宴前成片首映 + 4机位现场剪辑",
-    description: "从清晨接亲的欢笑到仪式宣誓的震撼，主创剪辑师现场驻扎，晚宴开场即刻引爆全场亲友感官。",
-    highlights: ["现场移动工作站即时渲染", "晚宴LED大屏4K无损首映", "全网高清即刻转发"]
+    aspectRatio: "2.39:1",
+    tag: "原素材废片抢救 + 电影节奏卡点 + 誓词降噪",
+    description: "新人提供400GB繁杂现场机位素材，主创剪辑师重新理顺叙事逻辑，以誓词为情感主线打造催泪大片。",
+    highlights: ["多机位声画无缝对齐", "现场杂音智能隔离重构", "定制好莱坞级动效转场"]
   },
   {
-    id: "film-4",
-    title: "《云端誓词 · 苍穹之境》",
-    category: "aerial",
-    categoryLabel: "4K全景航拍",
-    couple: "Henry & Melody",
-    location: "云南 · 大理洱海与苍山",
-    date: "2025.12.03",
-    duration: "04:10",
+    id: "work-4",
+    title: "《手机/微单原片升维 · 达芬奇电影调色》",
+    category: "video-color",
+    categoryLabel: "视频后期调色",
+    couple: "Henry & Melody (大理旅拍)",
+    location: "线上定制交付",
+    date: "2025.12",
+    duration: "4K HDR 调色",
     cover: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1600&q=80",
     videoPreview: "https://assets.mixkit.co/videos/preview/mixkit-drone-view-of-a-couple-on-a-cliff-41712-large.mp4",
     aspectRatio: "2.39:1",
-    tag: "双无人机编队 + 宏大自然叙事",
-    description: "苍山覆雪，洱海映月。无人机俯冲与高空盘旋，将大自然的壮阔诗意化为新人爱情的永恒注脚。",
-    highlights: ["双机位高空视差构图", "10-bit D-Log M 高动态色彩", "FPV穿梭机花海俯冲特写"]
+    tag: "Kodak 2383 胶片LUT + 肤色智能追踪提亮",
+    description: "普通手机或微单直出素材灰暗生硬，通过色彩空间转换（CST）与肤色隔离调整，瞬间具备院线大片质感。",
+    highlights: ["Rec.709 to Film Print Emulation", "阴影青蓝高光暖金分离", "4K 60fps 无损母带渲染"]
   },
   {
-    id: "film-5",
-    title: "《复古梦境 · 胶片情绪志》",
-    category: "cinematic",
-    categoryLabel: "胶片感纪实",
-    couple: "Sean & Emily",
-    location: "北京 · 故宫红墙与四合院",
-    date: "2025.08.19",
-    duration: "03:40",
+    id: "work-5",
+    title: "《复古胶片颗粒 · 新中式婚纱精修与色调重塑》",
+    category: "photo-retouch",
+    categoryLabel: "高定人像精修",
+    couple: "Sean & Emily (故宫红墙素材)",
+    location: "线上定制交付",
+    date: "2025.08",
+    duration: "4K 超清精修",
     cover: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1600&q=80",
     videoPreview: "https://assets.mixkit.co/videos/preview/mixkit-newlywed-couple-kissing-in-the-park-42998-large.mp4",
     aspectRatio: "4:3",
-    tag: "新中式东方美学 + 温暖颗粒",
-    description: "红墙黛瓦与素雅婚纱的对话，真实抓拍无摆拍痕迹，记录最真挚的情感流动与微表情。",
-    highlights: ["哈苏中画幅色彩方案", "无感抓拍真实纪录", "精选电影同款配乐"]
+    tag: "哈苏中画幅色彩模拟 + 东方情绪光影",
+    description: "红墙黛瓦与婚纱的色调平衡，消除脸上油光与不自然折痕，凸显古典清冷与温婉气质。",
+    highlights: ["发际线与颅顶微调", "婚纱褶皱与裙摆流线整理", "古建与天空色相和谐"]
   },
   {
-    id: "film-6",
-    title: "《晨曦花园 · 法式油画感》",
-    category: "destination",
-    categoryLabel: "法式浪漫旅拍",
-    couple: "William & Sophia",
-    location: "莫干山 · 庄园古堡",
-    date: "2025.07.12",
-    duration: "03:30",
+    id: "work-6",
+    title: "《废片重塑 · 阴天改唯美丁达尔暮光》",
+    category: "photo-design",
+    categoryLabel: "合成与特效设计",
+    couple: "William & Sophia (庄园外景)",
+    location: "线上定制交付",
+    date: "2025.07",
+    duration: "艺术重绘",
     cover: "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1600&q=80",
     videoPreview: "https://assets.mixkit.co/videos/preview/mixkit-couple-walking-in-a-forest-41710-large.mp4",
     aspectRatio: "16:9",
-    tag: "莫奈花园柔光 + 油画调色",
-    description: "初夏林间穿透的丁达尔光线，如莫奈笔下的睡莲油画，优雅、静谧、充满呼吸感。",
-    highlights: ["柔焦滤镜定制光晕", "自然光影大师级调校", "原画级别4K无损交付"]
+    tag: "AI智能扩图 + 天空置换 + 光斑粒子重绘",
+    description: "拍摄当天阴天无光？通过数码后期合成温暖落日与林间丁达尔光束，化腐朽为神奇。",
+    highlights: ["真实物理光线投影计算", "复杂边缘发丝完美抠像", "氛围雾气与飞舞光斑渲染"]
   }
 ];
 
-// 数码调色与精修对比数据 (Before / After Lab)
+// 数码调色与精修实验室 (对比原片 vs 线上高级精修/调色)
 export const COLOR_LAB_PRESETS = [
   {
+    id: "portrait-retouch",
+    name: "高定人像修图 (质感皮/骨相光影)",
+    subtitle: "Master Photo Retouching",
+    description: "拒绝一键磨皮塑料感。采用商业修图双曲线与中性灰技法，重塑面部立体骨相光影，保留真实毛孔呼吸感与自然发丝光泽。",
+    beforeImg: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=70&sat=-60&con=-20", // 模拟暗淡原片
+    afterImg: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=95",
+    tags: ["质感毛孔保留", "五官立体骨相重塑", "杂乱碎发与皱褶修整", "眼神光增强"],
+    techParams: {
+      dynamicRange: "16-Bit ProPhoto RGB",
+      lutCurve: "Dodge & Burn Master",
+      grainDensity: "Micro Skin Texture",
+      colorDepth: "Lossless PSD Master"
+    }
+  },
+  {
     id: "kodak-2383",
-    name: "Kodak 2383 电影胶片",
-    subtitle: "Classic Cinema Film Tone",
-    description: "好莱坞经典电影工业级调色胶片，还原温润高贵肤色，暗部带微蓝青、高光泛温暖香槟金。",
-    beforeImg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=70&sat=-80&con=-20", // 模拟RAW Log灰度
+    name: "Kodak 2383 电影视频调色",
+    subtitle: "Cinematic Film Color Grading",
+    description: "好莱坞经典电影工业级调色方案，针对手机/微单视频素材进行色彩科学转换，还原温润高贵肤色，暗部带微蓝青、高光泛温暖香槟金。",
+    beforeImg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=70&sat=-80&con=-20",
     afterImg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=95",
-    tags: ["2.39:1 宽荧幕", "胶片微颗粒", "高动态对比", "肤色隔离保护"],
+    tags: ["DaVinci Resolve 调色", "2.39:1 宽荧幕遮幅", "胶片微颗粒", "肤色分离保护"],
     techParams: {
       dynamicRange: "14+ Stops HDR",
-      lutCurve: "Arri Log-C to Rec.709 Master",
-      grainDensity: "Medium Organic 35mm",
-      colorDepth: "12-Bit 4:4:4"
+      lutCurve: "Arri/Sony Log to Film Master",
+      grainDensity: "Organic 35mm Grain",
+      colorDepth: "10-Bit / 12-Bit 4:2:2"
     }
   },
   {
-    id: "french-soft",
-    name: "法式晨光油画",
-    subtitle: "French Painterly Glow",
-    description: "细腻柔和的奶油光晕，高光溢出处理，赋予画面梦幻唯美的诗意油画质感。",
-    beforeImg: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=70&sat=-70&con=-30",
-    afterImg: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=95",
-    tags: ["丁达尔漫反射", "柔光溢出", "温润莫兰迪色系"],
-    techParams: {
-      dynamicRange: "13.5 Stops",
-      lutCurve: "Soft Highlight Rolloff",
-      grainDensity: "Ultra Fine",
-      colorDepth: "10-Bit Pro"
-    }
-  },
-  {
-    id: "timeless-bw",
-    name: "经典黑白情绪纪实",
-    subtitle: "Timeless Monochrome Emotion",
-    description: "剥离多余色彩干扰，以极致的光影层次与骨相明暗凸显情绪张力与永恒感动。",
+    id: "sky-atmosphere",
+    name: "场景光影重塑 (阴天改暮光)",
+    subtitle: "Atmospheric Scene Transformation",
+    description: "针对外景拍摄时光线欠佳、天空惨白或环境杂乱等问题，进行数字化场景氛围光线重构与艺术色调渲染。",
     beforeImg: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=70&sat=-40",
-    afterImg: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=95&sat=-100&con=30",
-    tags: ["光影雕刻", "高反差张力", "银盐胶片质感"],
+    afterImg: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=95&con=20",
+    tags: ["丁达尔光线注入", "背景杂物极速消除", "色调冷暖平衡", "空间层次提升"],
     techParams: {
-      dynamicRange: "Extreme Contrast Zone",
-      lutCurve: "Silver Gelatin Emulation",
-      grainDensity: "Heavy Grain 16mm",
-      colorDepth: "Monochrome 16-Bit"
+      dynamicRange: "High Contrast Atmosphere",
+      lutCurve: "Sunset Golden Hour Curve",
+      grainDensity: "Fine Haze Atmosphere",
+      colorDepth: "Ultra Resolution Layer"
     }
   }
 ];
 
-// 定制服务大类
+// 线上核心服务大类 (4大线上主营业务)
 export const SERVICES_LIST = [
   {
-    id: "srv-wedding-film",
-    title: "电影级婚礼全天纪实定制",
-    english: "Cinematic Wedding Day Masterpiece",
-    icon: "Video",
-    tagline: "多机位交织，用好莱坞电影叙事定格人生高光",
-    basePrice: "¥ 8,800",
-    features: [
-      "资深电影摄影指导 + 主创团队全程执镜",
-      "4K 60fps HDR 超高清多机位同步录制",
-      "独家 Kodak / Arri 电影色调精细调色",
-      "全套电影级无线收音（誓词与现场环境音分离降噪）",
-      "赠送 3-5分钟精华电影预告片 + 45-60分钟完整全纪录"
-    ]
-  },
-  {
-    id: "srv-sameday-edit",
-    title: "晚宴极速快剪 (SDE) 专案",
-    english: "Same-Day Edit Premiere",
-    icon: "Zap",
-    tagline: "晚宴前即刻出片，当晚与所有亲友共赏晨昏感动",
-    basePrice: "¥ 3,600",
-    features: [
-      "专职剪辑师进驻婚礼现场移动工作站",
-      "下午17:30前完成调色、配乐与精剪",
-      "晚宴LED大屏 4K 高清格式无损直投",
-      "提供扫码即享高清H5供宾客现场转发朋友圈",
-      "双重云端与本地高可靠备份机制"
-    ]
-  },
-  {
-    id: "srv-drone-master",
-    title: "4K/8K 苍穹航拍与FPV视角",
-    english: "Aerial & FPV Cinematic Vision",
-    icon: "Compass",
-    tagline: "上帝视角的壮丽空间与极速穿梭的视听震撼",
-    basePrice: "¥ 2,800",
-    features: [
-      "持民航CAAC执照专业飞手安全执飞",
-      "大疆旗舰无人机 4K HDR 10-bit 采集",
-      "可选用FPV穿梭机打造花海与城堡惊艳长镜头",
-      "全景婚礼外景、迎亲车队及户外仪式航拍",
-      "包含空域申请与全套航拍保险保障"
-    ]
-  },
-  {
-    id: "srv-ai-retouch",
-    title: "AI光影微精修与3D动态相册",
-    english: "AI Digital Finishing & 3D Interactive Album",
+    id: "srv-photo-retouch",
+    title: "高定婚纱图片数码精修",
+    english: "Master Digital Photo Retouching",
     icon: "Sparkles",
-    tagline: "微米级动态皮肤质感保留，让相册跃然屏上",
-    basePrice: "¥ 1,800",
+    tagline: "商业级中性灰精修，保留毛孔骨相，拯救不满意原片",
+    basePrice: "¥ 25 / 张 起",
     features: [
-      "独家数码光影重构算法，保留真实毛孔呼吸感",
-      "LivePhoto动态活化，静态照片一键生成心动微动效",
-      "3D三维翻页沉浸式云端婚礼纪念册",
-      "宾客弹幕祝福互动与永久云端储存",
-      "支持一键排版小红书/朋友圈高清九宫格"
+      "单张精修：包含五官微调、身型轮廓美化、双曲线光影重塑",
+      "质感皮肤处理：杜绝磨皮塑料感，还原细腻原生肌理",
+      "环境杂物与无关路人 100% 无痕擦除消除",
+      "支持 Kodak胶片/法式油画/轻奢复古 等多风格调色定稿",
+      "一对一专属修图师沟通，终身修改至完全满意为止"
+    ]
+  },
+  {
+    id: "srv-album-design",
+    title: "婚纱画册与海报杂志风设计",
+    english: "Photo Album & Poster Editorial Design",
+    icon: "Layers",
+    tagline: "告别影楼土味模板，打造 Vogue 级艺术排版与留白设计",
+    basePrice: "¥ 380 / 本 起",
+    features: [
+      "资深平面设计师纯手工原创排版，拒绝套路模板",
+      "融入新人誓词、纪念日期与法式/英伦艺术手写字体",
+      "包含相册封面烫金文字设计、内页跨页跨幅视觉流线编排",
+      "交付高分辨率印刷级 CMYK 无损 PDF 与分层 PSD 文件",
+      "赠送适配手机端全屏翻页电子相册 H5 套件"
+    ]
+  },
+  {
+    id: "srv-video-editing",
+    title: "婚礼视频线上定制精剪包装",
+    english: "Bespoke Video Editing & Packaging",
+    icon: "Video",
+    tagline: "新人自备素材在线传片，专业剪辑师打造院线级微电影",
+    basePrice: "¥ 680 / 支 起",
+    features: [
+      "支持手机/单反/无人机/多机位杂乱素材重新编排叙事",
+      "精剪 3-5分钟高潮微电影预告片 或 30-60分钟完整纪录片",
+      "专业电影级音频降噪、誓词对白增强与高品质背景配乐",
+      "好莱坞级字幕包装与专属电影片头片尾定制",
+      "最快 48 小时加急出成片，支持晚宴前加急首映快剪"
+    ]
+  },
+  {
+    id: "srv-video-color",
+    title: "DaVinci 电影级视频调色",
+    english: "Cinematic Color Grading for Video",
+    icon: "Sliders",
+    tagline: "普通视频一秒变电影，达芬奇调色师专属色调定制",
+    basePrice: "¥ 300 / 支 起",
+    features: [
+      "Blackmagic DaVinci Resolve Studio 影视级色彩空间转换",
+      "解决素材曝光不足、偏色、死白与暗部细节丢失问题",
+      "独家 Kodak 2383 / 胶片电影 / 柔光复古 LUT 定制匹配",
+      "面部肤色智能跟踪提亮与美肤柔化滤镜",
+      "输出 4K HDR 60fps 高码率母带视频"
     ]
   }
 ];
 
-// 智能配置器选项数据
+// 线上智能定制配置器数据
 export const CONFIGURATOR_DATA = {
-  // Step 1: 拍摄类别
+  // Step 1: 线上定制业务类别
   categories: [
-    { id: "full-day", name: "婚礼全天电影纪实", desc: "早起接亲至晚宴结束 (约12小时)", price: 6800, icon: "Clock" },
-    { id: "half-day", name: "仪式及晚宴半天精选", desc: "下午迎宾、仪式至晚宴敬酒 (约6小时)", price: 4200, icon: "Sun" },
-    { id: "destination", name: "全球蜜月/婚纱旅拍定制", desc: "2天1夜定制电影短片与专属MV", price: 12800, icon: "MapPin" },
-    { id: "proposal", name: "订婚/求婚惊喜微电影", desc: "全程隐蔽机位抓拍与求婚大片 (约4小时)", price: 3200, icon: "Heart" }
+    { id: "photo-retouch-pkg", name: "婚纱图片高定精修包", desc: "商业双曲线质感精修，拯救瑕疵与肤色", price: 399, icon: "Sparkles", defaultUnit: "15张精修" },
+    { id: "album-design-pkg", name: "婚纱画册/海报排版设计", desc: "杂志风排版设计 + 电子相册套件", price: 580, icon: "Layers", defaultUnit: "30P画册排版" },
+    { id: "video-edit-pkg", name: "婚礼微电影精剪与音频包装", desc: "自备素材提炼 3-5分钟电影感预告短片", price: 980, icon: "Video", defaultUnit: "1支精剪成片" },
+    { id: "all-in-one-pkg", name: "【全案包】图修 + 画册 + 视频精剪", desc: "30张精修 + 画册排版 + 5分钟视频微电影", price: 1880, icon: "Heart", defaultUnit: "全案定制大礼包" }
   ],
 
-  // Step 2: 机位与摄制规格
-  cameraSetups: [
-    { id: "single", name: "单机位电影级精选", desc: "1位主创摄影师，适合小而美温馨婚礼", price: 0, tag: "基础" },
-    { id: "double", name: "双机位主副交织 (推荐)", desc: "1位主摄(新人) + 1位副摄(宾客与情绪特写)", price: 3200, tag: "人气推荐" },
-    { id: "triple", name: "三机位好莱坞阵容", desc: "新郎机位 + 新娘机位 + 游击情绪与全景机位", price: 6400, tag: "奢华大片" },
-    { id: "quad", name: "四机位大师电影组", desc: "3机位地面 + 1机位现场导播摇臂/滑轨特写", price: 9800, tag: "顶奢配置" }
+  // Step 2: 精修规格与修图深度
+  retouchLevels: [
+    { id: "standard-retouch", name: "标准商业精修 (自然通透)", desc: "基础瑕疵、身形微调、肤色均匀透亮、杂物简单去除", price: 0, tag: "性价比" },
+    { id: "master-retouch", name: "大师级高定精修 (骨相光影)", desc: "双曲线骨相雕刻、发丝毛孔保留、衣服褶皱重塑、微表情优化", price: 200, tag: "人气首选" },
+    { id: "art-reconstruct", name: "艺术重绘与废片抢救", desc: "阴天换暮光天空、复杂背景路人无痕剔除、AI智能场景扩图", price: 450, tag: "废片救星" }
   ],
 
-  // 航拍升级
-  droneOptions: [
-    { id: "none", name: "无需航拍", price: 0 },
-    { id: "standard-drone", name: "大疆旗舰4K单机航拍", desc: "迎亲、户外场地全景与车队航拍", price: 1800 },
-    { id: "dual-fpv-drone", name: "双无人机 (全景+FPV穿梭机)", desc: "极具视觉冲击力的穿梭俯冲镜头", price: 3200 }
+  // 图片数量增购滑块/选项
+  photoQuantityOptions: [
+    { id: "qty-10", name: "标准套餐包含张数", price: 0 },
+    { id: "qty-20", name: "额外加修 +10 张 (合计25张)", desc: "加修享 8折优惠", price: 200 },
+    { id: "qty-40", name: "额外加修 +25 张 (合计40张)", desc: "加修享 7.5折优惠", price: 450 },
+    { id: "qty-60", name: "全案大精修 +50 张 (合计65张)", desc: "适合全套婚纱照精修", price: 800 }
   ],
 
-  // Step 3: 后期与数码制作
+  // Step 3: 视频后期与设计增值项
   postProduction: [
-    { id: "standard-edit", name: "标准电影剪辑 (3-5min预告 + 45min完整纪录)", price: 0, required: true },
-    { id: "sameday-edit", name: "24H极速快剪 (晚宴现场首映SDE)", price: 2800, desc: "当晚晚宴开场即时播放" },
-    { id: "raw-archive", name: "全套 4K RAW/ProRes 原素材无损母带交付", price: 1200, desc: "提供全套素材无损母带与剪辑工程" },
-    { id: "voiceover-custom", name: "新人专属情书录音旁白与声场设计", price: 900, desc: "专业降噪与电影级原声混音" },
-    { id: "ai-livephoto", name: "AI 动态照片生成与微表情动效 (30张)", price: 800, desc: "让静止定格瞬间焕发灵动生命力" }
+    { id: "davinci-color", name: "DaVinci 独家 Kodak 2383 电影胶片调色", price: 180, desc: "好莱坞级色调，提升整体光影高级感" },
+    { id: "audio-denoise", name: "现场誓词人声 AI 隔离降噪与母带混音", price: 120, desc: "消除环境风噪回音，让爱的誓言纯净清晰" },
+    { id: "custom-typography", name: "专属法式手写片头/画册排版封面题字", price: 150, desc: "独立设计师手工排版专属姓名与日期" },
+    { id: "livephoto-ai", name: "AI 动态照片生成与微动效 (LivePhoto 10张)", price: 160, desc: "让定格照片在手机上动起来" }
   ],
 
-  // Step 4: 交付实体与数码资产
+  // Step 4: 交付时效与保障
   deliverables: [
-    { id: "cloud-vip", name: "【包含】MerryMe 终身尊享 4K 云相册空间", price: 0, free: true },
-    { id: "luxury-usb", name: "定制 4K 水晶黑金双口 U 盘礼盒", price: 680, desc: "锌合金电镀外壳 + 进口胡桃木定制铭刻" },
-    { id: "italian-album", name: "意式真皮 18 寸手工烫金精装大画册 (40P)", price: 1680, desc: "德国无酸富士相纸冷裱" },
-    { id: "digital-h5", name: "专属互动电子婚礼大屏与微信请柬套件", price: 500, desc: "支持宾客弹幕与照片上传" }
+    { id: "cloud-vip", name: "【包含】MerryMe 专属云交付画廊 + 永久无损备份", price: 0, free: true },
+    { id: "unlimited-revision", name: "【包含】一对一沟通 · 终身无限次微调至满意", price: 0, free: true },
+    { id: "fast-delivery-48h", name: "48H 极速加急交付通道", price: 180, desc: "加急专人修图/剪辑，2天内交付初稿" },
+    { id: "fast-delivery-24h", name: "24H 极速特急出片 (当日快剪/婚礼前夕急用)", price: 360, desc: "VIP 优先队列，24小时内极速交付" },
+    { id: "raw-psd-project", name: "全套分层 PSD 修图工程 / PR/FCPX 剪辑工程文件交付", price: 260, desc: "无损原稿母带归档" }
   ]
 };
 
-// 模拟新人专属云相册体验数据
+// 模拟新人专属在线选片与交付系统数据
 export const DEMO_CLIENT_PORTAL = {
   coupleName: "James & Andrea",
-  weddingDate: "2025年11月18日",
-  location: "三亚 · 亚龙湾瑞吉度假酒店",
-  viewCount: "3,892",
-  totalPhotos: 680,
+  projectType: "婚纱照高定精修 & 婚礼微电影终剪",
+  deliveryStatus: "全部定稿已交付 (共 68 张精修 + 4K 电影成片)",
+  viewCount: "2,410",
+  totalPhotos: 68,
   featuredPhotos: [
     {
       id: "p1",
       url: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85",
-      title: "海风誓言",
-      likes: 186
+      title: "【已精修】海风暮光 · 质感肤质",
+      likes: 218,
+      status: "精修定稿"
     },
     {
       id: "p2",
       url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=85",
-      title: "第一眼凝望",
-      likes: 245
+      title: "【已精修】第一眼凝望 · 杂物消除",
+      likes: 264,
+      status: "精修定稿"
     },
     {
       id: "p3",
       url: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1000&q=85",
-      title: "晨曦妆容",
-      likes: 192
+      title: "【已排版】巴黎手记 · 杂志风封面",
+      likes: 198,
+      status: "排版定稿"
     },
     {
       id: "p4",
       url: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1000&q=85",
-      title: "暮光漫步",
-      likes: 310
+      title: "【已精修】苍山之盟 · 天空光影重绘",
+      likes: 320,
+      status: "艺术重绘"
     },
     {
       id: "p5",
       url: "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1000&q=85",
-      title: "指尖戒指",
-      likes: 278
+      title: "【已精修】晨光花园 · 丁达尔光斑",
+      likes: 289,
+      status: "精修定稿"
     },
     {
       id: "p6",
       url: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1000&q=85",
-      title: "亲友欢呼",
-      likes: 164
+      title: "【已排版】故宫红墙 · 跨页画册设计",
+      likes: 175,
+      status: "排版定稿"
     }
   ],
   initialDanmu: [
-    { id: 1, text: "太美了！电影质感拉满！✨", user: "伴娘 林琳", time: "刚刚" },
-    { id: 2, text: "祝 James & Andrea 新婚快乐，永远恩爱！💖", user: "叔叔 张建国", time: "1分钟前" },
-    { id: 3, text: "这个色调好绝，感觉在看院线大片 🎬", user: "好友 楚楚", time: "3分钟前" },
-    { id: 4, text: "哭死我了，誓词那段真的太感人！😭", user: "大学同学 Leo", time: "5分钟前" },
-    { id: 5, text: "求摄影团队联系方式，明年我也要定这家！👏", user: "表姐 婷婷", time: "8分钟前" }
+    { id: 1, text: "修图师太神了！原本阴天的照片修成晚霞大片！✨", user: "新娘 Andrea", time: "刚刚" },
+    { id: 2, text: "皮肤质感完全保留了毛孔，一点都不假白假面！💖", user: "闺蜜 小洁", time: "1分钟前" },
+    { id: 3, text: "视频配乐和誓词剪辑哭死我了，简直像在看院线电影 🎬", user: "新郎 James", time: "3分钟前" },
+    { id: 4, text: "杂志排版的字体太高级了，马上拿去印画册！👏", user: "伴娘 欣欣", time: "5分钟前" },
+    { id: 5, text: "24小时就给到初稿，修改还特别耐心，吹爆这家！💯", user: "客户 楚楚", time: "8分钟前" }
   ]
 };
-
-// 创作团队
-export const CREATIVE_TEAM = [
-  {
-    name: "Alexandre Vance",
-    role: "摄影指导 / 联合创始人",
-    title: "Cinematography Director",
-    bio: "前法国电影学院摄影系进修，曾执镜多部院线艺术电影与 Vogue 封面时尚短片，深谙自然光影与情感抓取。",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
-    worksCount: "400+ 场高端婚礼"
-  },
-  {
-    name: "Cora Lin (林清越)",
-    role: "首席调色师 / 色彩科学总监",
-    title: "Senior Colorist",
-    bio: "Blackmagic DaVinci Resolve 认证调色导师，独家研发 MerryMe 24套胶片级数码LUT，赋予每部作品独特灵魂。",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
-    worksCount: "8年电影后期经验"
-  },
-  {
-    name: "Julian Chen (陈奕)",
-    role: "声音设计与配乐总监",
-    title: "Audio & Music Producer",
-    bio: "伯克利音乐学院影视配乐背景，为每对新人量身定制独一无二的电影级原声混音与情感配乐。",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
-    worksCount: "百余首原创影视伴奏"
-  }
-];

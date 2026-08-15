@@ -1,15 +1,15 @@
 import React from 'react';
-import { Video, Zap, Compass, Sparkles, ArrowUpRight, Check } from 'lucide-react';
+import { Sparkles, Layers, Video, Sliders, ArrowUpRight, Check, Wand2 } from 'lucide-react';
 import { SERVICES_LIST } from '../data/weddingData';
 
 export function ServicesMatrix({ onSelectServiceForConfig }) {
   const getIcon = (iconName) => {
     switch (iconName) {
-      case 'Video': return <Video size={24} color="var(--gold-primary)" />;
-      case 'Zap': return <Zap size={24} color="var(--gold-primary)" />;
-      case 'Compass': return <Compass size={24} color="var(--gold-primary)" />;
       case 'Sparkles': return <Sparkles size={24} color="var(--gold-primary)" />;
-      default: return <Video size={24} color="var(--gold-primary)" />;
+      case 'Layers': return <Layers size={24} color="var(--gold-primary)" />;
+      case 'Video': return <Video size={24} color="var(--gold-primary)" />;
+      case 'Sliders': return <Sliders size={24} color="var(--gold-primary)" />;
+      default: return <Wand2 size={24} color="var(--gold-primary)" />;
     }
   };
 
@@ -21,11 +21,11 @@ export function ServicesMatrix({ onSelectServiceForConfig }) {
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
           <div className="section-tag">
             <Sparkles size={14} />
-            <span>Bespoke Services</span>
+            <span>Online Digital Services</span>
           </div>
-          <h2 className="section-title">全维度婚庆数码影像定制体系</h2>
+          <h2 className="section-title">线上影像设计与数码后期定制体系</h2>
           <p className="section-desc">
-            从前期机位策划、现场电影级摄制，到24小时急速快剪、达芬奇调色与终身数字云相册，每一项服务皆可自由组合定制。
+            无需线下奔波，无论您身在何地，只要在线传片，即可享受商业级修图、Vogue风排版设计与院线级视频剪辑调色。
           </p>
         </div>
 
@@ -60,7 +60,7 @@ export function ServicesMatrix({ onSelectServiceForConfig }) {
               }} />
 
               <div>
-                {/* Icon & Category */}
+                {/* Icon & Base Price */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
                   <div style={{
                     width: '48px',
@@ -74,8 +74,8 @@ export function ServicesMatrix({ onSelectServiceForConfig }) {
                   }}>
                     {getIcon(srv.icon)}
                   </div>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>
-                    起价 {srv.basePrice}
+                  <span style={{ fontSize: '0.85rem', color: 'var(--gold-light)', fontWeight: 600, letterSpacing: '0.05em' }}>
+                    {srv.basePrice}
                   </span>
                 </div>
 
@@ -119,7 +119,7 @@ export function ServicesMatrix({ onSelectServiceForConfig }) {
                   borderColor: 'var(--border-gold)'
                 }}
               >
-                <span>配置此服务预算</span>
+                <span>配置此项定制预算</span>
                 <ArrowUpRight size={14} />
               </a>
 

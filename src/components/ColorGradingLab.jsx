@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Sliders, Sparkles, Film, Eye, Award, CheckCircle2 } from 'lucide-react';
+import { Sliders, Sparkles, Film, Eye, Award, Wand2, Image, Layers } from 'lucide-react';
 import { COLOR_LAB_PRESETS } from '../data/weddingData';
 
 export function ColorGradingLab() {
-  const [selectedPresetId, setSelectedPresetId] = useState("kodak-2383");
-  const [sliderPosition, setSliderPosition] = useState(50); // percentage 0-100
+  const [selectedPresetId, setSelectedPresetId] = useState("portrait-retouch");
+  const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef(null);
 
@@ -49,12 +49,12 @@ export function ColorGradingLab() {
         {/* Section Header */}
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
           <div className="section-tag">
-            <Sliders size={14} />
-            <span>Digital Color & Finishing Lab</span>
+            <Wand2 size={14} />
+            <span>Digital Retouching & Color Lab</span>
           </div>
-          <h2 className="section-title">独家电影胶片调色与数码后期</h2>
+          <h2 className="section-title">高定人像精修与电影调色实验室</h2>
           <p className="section-desc">
-            拒绝千篇一律的机械滤镜。我们采用达芬奇（DaVinci Resolve Studio）影视级色彩科学，为每一组镜头定制专属光影情绪。
+            拒绝流水线一键套滤镜。商业修图双曲线与达芬奇色彩科学，精准拯救暗淡原片、杂乱背景与生硬肤色。
           </p>
         </div>
 
@@ -99,7 +99,7 @@ export function ColorGradingLab() {
           alignItems: 'center'
         }}>
           
-          {/* Left / Main: The Interactive Split Slider */}
+          {/* Left: Interactive Split Slider */}
           <div style={{ position: 'relative' }}>
             <div
               ref={containerRef}
@@ -123,10 +123,10 @@ export function ColorGradingLab() {
                 if (e.touches[0]) handleMove(e.touches[0].clientX);
               }}
             >
-              {/* "After" Image (Right side / Base) */}
+              {/* "After" Image (Finished master) */}
               <img
                 src={activePreset.afterImg}
-                alt="After Color Grading"
+                alt="After Master Retouching"
                 style={{
                   position: 'absolute',
                   inset: 0,
@@ -137,7 +137,7 @@ export function ColorGradingLab() {
                 }}
               />
 
-              {/* "Before" Image (Left side / Clipped) */}
+              {/* "Before" Image (Raw original) */}
               <div
                 style={{
                   position: 'absolute',
@@ -150,7 +150,7 @@ export function ColorGradingLab() {
               >
                 <img
                   src={activePreset.beforeImg}
-                  alt="Before Raw Log"
+                  alt="Before Raw unedited"
                   style={{
                     position: 'absolute',
                     top: 0,
@@ -199,7 +199,7 @@ export function ColorGradingLab() {
                 position: 'absolute',
                 top: '16px',
                 left: '16px',
-                background: 'rgba(0, 0, 0, 0.7)',
+                background: 'rgba(0, 0, 0, 0.75)',
                 backdropFilter: 'blur(8px)',
                 padding: '4px 12px',
                 borderRadius: '6px',
@@ -209,14 +209,14 @@ export function ColorGradingLab() {
                 pointerEvents: 'none',
                 zIndex: 5
               }}>
-                RAW LOG 原片未调色
+                RAW 原片未精修 / 灰度素材
               </div>
 
               <div style={{
                 position: 'absolute',
                 top: '16px',
                 right: '16px',
-                background: 'rgba(212, 175, 55, 0.85)',
+                background: 'rgba(212, 175, 55, 0.9)',
                 color: '#0a0b0e',
                 fontWeight: 600,
                 padding: '4px 12px',
@@ -226,7 +226,7 @@ export function ColorGradingLab() {
                 pointerEvents: 'none',
                 zIndex: 5
               }}>
-                MERRYME 电影大师成片
+                MERRYME 线上高定精修成片
               </div>
 
               {/* Bottom hint */}
@@ -244,12 +244,12 @@ export function ColorGradingLab() {
                 pointerEvents: 'none',
                 zIndex: 5
               }}>
-                ← 左右拖拽滑块查看调色前后效果 →
+                ← 左右拖拽滑块查看精修/调色前后对比 →
               </div>
             </div>
           </div>
 
-          {/* Right: Technical Specs & Philosophy */}
+          {/* Right: Technical Specs */}
           <div className="glass-panel-gold" style={{ padding: '32px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
               <Award size={18} color="var(--gold-primary)" />
@@ -293,23 +293,23 @@ export function ColorGradingLab() {
               border: '1px solid var(--border-subtle)'
             }}>
               <div style={{ fontSize: '0.8rem', color: 'var(--gold-primary)', fontWeight: 600, marginBottom: '10px' }}>
-                影像数码后期参数 (Technical Output)
+                后期工艺与交付标准 (Craft Standard)
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', fontSize: '0.8rem' }}>
                 <div>
-                  <span style={{ color: 'var(--text-muted)' }}>动态范围：</span>
+                  <span style={{ color: 'var(--text-muted)' }}>色彩空间：</span>
                   <span style={{ color: '#fff' }}>{activePreset.techParams.dynamicRange}</span>
                 </div>
                 <div>
-                  <span style={{ color: 'var(--text-muted)' }}>LUT转换：</span>
+                  <span style={{ color: 'var(--text-muted)' }}>修图工艺：</span>
                   <span style={{ color: '#fff' }}>{activePreset.techParams.lutCurve}</span>
                 </div>
                 <div>
-                  <span style={{ color: 'var(--text-muted)' }}>颗粒模拟：</span>
+                  <span style={{ color: 'var(--text-muted)' }}>肌理细节：</span>
                   <span style={{ color: '#fff' }}>{activePreset.techParams.grainDensity}</span>
                 </div>
                 <div>
-                  <span style={{ color: 'var(--text-muted)' }}>色彩深度：</span>
+                  <span style={{ color: 'var(--text-muted)' }}>交付格式：</span>
                   <span style={{ color: '#fff' }}>{activePreset.techParams.colorDepth}</span>
                 </div>
               </div>

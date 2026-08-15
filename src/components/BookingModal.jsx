@@ -98,7 +98,7 @@ export function BookingModal({ isOpen, onClose, initialPlanData }) {
         {!submitted ? (
           <div>
             {/* Header */}
-            <div style={{ textAlign: 'center', marginBottom: '28px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '24px' }}>
               <div className="section-tag" style={{ marginBottom: '6px' }}>
                 <Sparkles size={13} />
                 <span>Bespoke Reservation</span>
@@ -106,8 +106,19 @@ export function BookingModal({ isOpen, onClose, initialPlanData }) {
               <h2 className="font-serif" style={{ fontSize: '1.85rem', color: '#fff', marginBottom: '8px' }}>
                 锁定婚期与定制影像方案
               </h2>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-                每日仅承接 2 场定制婚礼摄制，提交后专属影像总监将于 2 小时内与您深度沟通。
+              <div style={{
+                background: 'rgba(212, 175, 55, 0.1)',
+                border: '1px solid rgba(212, 175, 55, 0.3)',
+                padding: '6px 12px',
+                borderRadius: '6px',
+                fontSize: '0.78rem',
+                color: 'var(--gold-light)',
+                marginBottom: '8px'
+              }}>
+                ⚠️ 提示：本站当前为<strong>开发建设预览阶段</strong>，提交后仅用于系统交互流程测试。
+              </div>
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+                欢迎体验全流程机位定制与预算配置，正式商业服务开放时将第一时间通知。
               </p>
             </div>
 

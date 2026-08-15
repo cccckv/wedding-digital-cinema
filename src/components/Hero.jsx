@@ -73,25 +73,41 @@ export function Hero({ onOpenBooking, onSelectPortfolioVideo }) {
       <div className="container-custom" style={{ position: 'relative', zIndex: 2, width: '100%', paddingBottom: '60px' }}>
         <div style={{ maxWidth: '820px' }}>
           
-          {/* Badge & Category Tag */}
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            background: 'rgba(212, 175, 55, 0.12)',
-            border: '1px solid var(--border-gold)',
-            padding: '6px 16px',
-            borderRadius: '30px',
-            marginBottom: '24px'
-          }}>
-            <Sparkles size={14} color="var(--gold-primary)" />
-            <span className="font-display" style={{ fontSize: '0.8rem', color: 'var(--gold-light)', letterSpacing: '0.15em' }}>
-              {heroSlides[activeSlide].subtitle}
-            </span>
-            <span style={{ color: 'var(--gold-muted)' }}>|</span>
-            <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
-              {heroSlides[activeSlide].tag}
-            </span>
+          {/* Badge & Construction Notice Pill */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px', marginBottom: '24px' }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              background: 'rgba(212, 175, 55, 0.12)',
+              border: '1px solid var(--border-gold)',
+              padding: '6px 16px',
+              borderRadius: '30px'
+            }}>
+              <Sparkles size={14} color="var(--gold-primary)" />
+              <span className="font-display" style={{ fontSize: '0.8rem', color: 'var(--gold-light)', letterSpacing: '0.15em' }}>
+                {heroSlides[activeSlide].subtitle}
+              </span>
+              <span style={{ color: 'var(--gold-muted)' }}>|</span>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+                {heroSlides[activeSlide].tag}
+              </span>
+            </div>
+
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              background: 'rgba(239, 68, 68, 0.12)',
+              border: '1px solid rgba(239, 68, 68, 0.35)',
+              padding: '5px 12px',
+              borderRadius: '20px',
+              fontSize: '0.75rem',
+              color: '#fca5a5'
+            }}>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#ef4444', display: 'inline-block' }} />
+              <span>开发建设阶段 · 暂未正式运营</span>
+            </div>
           </div>
 
           {/* Headline */}

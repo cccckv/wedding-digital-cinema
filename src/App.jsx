@@ -31,7 +31,7 @@ export function App() {
       {/* Subtle film grain texture overlay */}
       <div className="grain-overlay" />
 
-      {/* Navigation */}
+      {/* Navigation with integrated top notice banner */}
       <Navbar onOpenBooking={handleOpenBooking} />
 
       {/* Main Content Sections */}

@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Film, Music, VolumeX, Volume2, Sparkles, Menu, X, Calendar } from 'lucide-react';
+import { Film, Music, VolumeX, Volume2, Sparkles, Menu, X, Calendar, Hammer } from 'lucide-react';
 import { BRAND_INFO } from '../data/weddingData';
 
 export function Navbar({ onOpenBooking, activeSection }) {
   const [scrolled, setScrolled] = useState(false);
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showNotice, setShowNotice] = useState(true);
   const audioContextRef = useRef(null);
   const timerRef = useRef(null);
 
@@ -37,13 +38,11 @@ export function Navbar({ onOpenBooking, activeSection }) {
         const ctx = new AudioContext();
         audioContextRef.current = ctx;
 
-        // Romantic cinematic chord notes (frequencies)
-        // Chords: Dbmaj7 -> Bbm7 -> Gbmaj7 -> Ab
         const chords = [
-          [277.18, 349.23, 415.30, 523.25], // Db, F, Ab, C
-          [233.08, 277.18, 349.23, 415.30], // Bb, Db, F, Ab
-          [185.00, 277.18, 349.23, 440.00], // Gb, Db, F, A
-          [207.65, 261.63, 311.13, 415.30]  // Ab, C, Eb, Ab
+          [277.18, 349.23, 415.30, 523.25],
+          [233.08, 277.18, 349.23, 415.30],
+          [185.00, 277.18, 349.23, 440.00],
+          [207.65, 261.63, 311.13, 415.30]
         ];
 
         let chordIndex = 0;
@@ -61,7 +60,6 @@ export function Navbar({ onOpenBooking, activeSection }) {
             osc.type = i === 0 ? 'sine' : 'triangle';
             osc.frequency.setValueAtTime(freq, now);
 
-            // Soft romantic piano/pad envelope
             gain.gain.setValueAtTime(0.001, now);
             gain.gain.exponentialRampToValueAtTime(0.04, now + 1.2);
             gain.gain.exponentialRampToValueAtTime(0.0001, now + 5.5);
@@ -101,13 +99,63 @@ export function Navbar({ onOpenBooking, activeSection }) {
         right: 0,
         zIndex: 100,
         transition: 'all 0.4s ease',
-        backgroundColor: scrolled ? 'rgba(10, 11, 14, 0.88)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(212, 175, 55, 0.15)' : '1px solid transparent',
-        padding: scrolled ? '14px 0' : '22px 0'
+        backgroundColor: scrolled ? 'rgba(10, 11, 14, 0.94)' : (showNotice ? 'rgba(10, 11, 14, 0.85)' : 'transparent'),
+        backdropFilter: 'blur(20px)',
+        borderBottom: '1px solid rgba(212, 175, 55, 0.18)'
       }}
     >
-      <div className="container-custom" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      {/* Top Notice Banner */}
+      {showNotice && (
+        <div style={{
+          background: 'linear-gradient(90deg, rgba(212, 175, 55, 0.18) 0%, rgba(245, 226, 163, 0.3) 50%, rgba(212, 175, 55, 0.18) 100%)',
+          borderBottom: '1px solid rgba(212, 175, 55, 0.25)',
+          color: '#fff',
+          padding: '6px 16px',
+          fontSize: '0.78rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '12px'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <span style={{
+              background: 'var(--gold-gradient)',
+              color: '#0a0b0e',
+              fontSize: '0.68rem',
+              fontWeight: 700,
+              padding: '1px 7px',
+              borderRadius: '4px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '4px'
+            }}>
+              <Hammer size={11} />
+              平台建设中 · 未正式运营
+            </span>
+            <span style={{ color: 'var(--gold-light)' }}>
+              当前网站处于<strong>系统开发与体验阶段</strong>，各项功能、样片与定制测算仅供演示，暂未正式对外承接商业订单。
+            </span>
+          </div>
+
+          <button
+            onClick={() => setShowNotice(false)}
+            title="关闭提示"
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: 'var(--text-muted)',
+              cursor: 'pointer',
+              padding: '2px',
+              display: 'flex',
+              alignItems: 'center'
+            }}
+          >
+            <X size={14} />
+          </button>
+        </div>
+      )}
+
+      <div className="container-custom" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: scrolled ? '12px 24px' : '18px 24px' }}>
         {/* Brand Logo */}
         <a href="#hero" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
           <div style={{

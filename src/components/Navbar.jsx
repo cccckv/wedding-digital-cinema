@@ -89,8 +89,7 @@ export function Navbar({ onOpenBooking, activeSection }) {
     { name: "作品大片", href: "#portfolio" },
     { name: "数码调色实验室", href: "#color-lab" },
     { name: "智能配置与预算", href: "#configurator", badge: "定制" },
-    { name: "云交付体验", href: "#client-portal" },
-    { name: "主创团队", href: "#team" }
+    { name: "云交付体验", href: "#client-portal" }
   ];
 
   return (

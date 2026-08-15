@@ -6,7 +6,6 @@ import { PortfolioGallery } from './components/PortfolioGallery';
 import { ColorGradingLab } from './components/ColorGradingLab';
 import { CustomConfigurator } from './components/CustomConfigurator';
 import { ClientPortalPreview } from './components/ClientPortalPreview';
-import { TeamSection } from './components/TeamSection';
 import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
 
@@ -54,9 +53,6 @@ export function App() {
 
         {/* 6. Client Digital Cloud Portal Demo Experience */}
         <ClientPortalPreview />
-
-        {/* 7. Master Creative Team & Quality Guarantee */}
-        <TeamSection />
       </main>
 
       {/* Footer */}
